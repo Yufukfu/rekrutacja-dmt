@@ -1,0 +1,17 @@
+﻿Napisać program, który odczyta dane z punktu 1 i 2 do odpowiednich str
+z plików (jako parametry wejściowe program powinien przyjmować 
+nazwy tych plików). W trakcie odczytu ma nastąpić walidacja za pomocą
+json schema plików wejściowych, jak i oprócz tego:
+dla pliku z punktu 1 ma nastąpić:
+wyciągnięcie i sprawdzenie poprawności PAN z track2
+sprawdzenie daty ważności karty (ważna/nieważna) z track2
+określić metodę weryfikacji klienta (pin/podpis/brak) z track2
+dla pliku z punktu 2 ma nastąpić:
+sprawdzenie, czy zakresy od/do nie zachodzą na siebie i czy zakresy
+są rozdzielne
+ma nastąpić zmatchowanie zakresu numeru kart z puntku 2 do danych
+karty z punktu 1 (przy porównywaniu zakresów kart nie można 
+konwertować numeru karty na liczbę).
+Całość operacji ma być logowana do pliku (podanego jako trzeci
+parametr wejściowy) jak i na standardowe wyście opatrzone dodatkowym 
+opisem co jest wykonywane
