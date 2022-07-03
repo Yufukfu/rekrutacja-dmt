@@ -6,11 +6,6 @@
  "name": "Visa electron"
  },
  {
- "from": "5410000",
- "to": "5575199",
- "name": "debit mastercard"
- },
- {
  "from": "45",
  "to": "48",
  "name": "visa"

@@ -11,32 +11,18 @@ using Newtonsoft.Json.Linq;
 
 namespace rekrutacja_dmt.Models
 {
-    public class CardsList
+    public class CardsList : Json
     {
-        public List<Card> cards { get; set; }
-        private string SchemaString { get; set; }
-        private string JsonString { get; set; }
+        public List<Card> Cards { get; set; }
+        
        
-        public CardsList(string filepath, string schemapath)
+        public CardsList()
         {
-            if(filepath != null & schemapath != null)
-            {
-
-            JsonString = File.ReadAllText(filepath);
-            SchemaString = File.ReadAllText(schemapath);
-            Console.WriteLine(JsonString);
-            }
+            Cards = new List<Card>();
         }
-
-        public bool IsValid()
+        public override void Deserialize()
         {
-            JsonSchema schema = JsonSchema.Parse(SchemaString);
-            JObject cards = JObject.Parse(JsonString);
-            return cards.IsValid(schema);
-        }
-        public void Deserialize()
-        {
-            cards = JsonConvert.DeserializeObject<CardsList>(JsonString).cards;
+            Cards = JsonConvert.DeserializeObject<CardsList>(JsonString).Cards;
         }
     }
 }

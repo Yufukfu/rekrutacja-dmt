@@ -8,9 +8,14 @@ namespace rekrutacja_dmt.Models
 {
     public class Range
     {
-        public int from { get; set; }
-        public int to { get; set; }
+        public string from { get; set; }
+        public string to { get; set; }
         public string name { get; set; }
+        public bool Valid { get; set; }
+        public void IsValid()
+        {
+            Valid = string.Compare(to, from) == 1;
+        }
 
     }
 }
