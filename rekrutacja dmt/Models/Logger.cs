@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.IO;
 using System.Threading.Tasks;
 
 namespace rekrutacja_dmt
@@ -13,6 +14,14 @@ namespace rekrutacja_dmt
         {
             Console.WriteLine(str);
             LogString.Append(str).Append(Environment.NewLine);
+        }
+        public static void Log(string filename)
+        {
+            string str = LogString.ToString();
+            //string filename = DateTime.Now.ToString("yyyy_MM_dd_HH_mm");
+            string projectDirectory = Directory.GetParent(Environment.CurrentDirectory).Parent.FullName;
+            string path = $@"{projectDirectory}\Logs\{filename}.txt";
+            File.WriteAllText(path, str);
         }
     }
 }

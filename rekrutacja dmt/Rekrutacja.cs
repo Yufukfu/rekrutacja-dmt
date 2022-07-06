@@ -15,7 +15,7 @@ namespace rekrutacja_dmt
 {
     internal class Rekrutacja
     {
-        public string Main(string filename1 = "CardsList.json", string filename2 = "Ranges.json")
+        public string Main(string filename1 = "CardsList.json", string filename2 = "Ranges.json", string log_filename = "log.txt")
         {
             string schemaname1 = "CardsListSchema.json";
             string schemaname2 = "RangesSchema.json";
@@ -34,6 +34,7 @@ namespace rekrutacja_dmt
                 cardsList.Deserialize();
                 cardsList.CheckCards(rangesList);
             }
+            Logger.Log(log_filename);
             return Logger.LogString.ToString();
         }
     }
