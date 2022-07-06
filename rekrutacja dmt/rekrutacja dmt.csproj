@@ -84,33 +84,32 @@
     <Compile Include="Models\Json.cs" />
     <Compile Include="Models\CardsList.cs" />
     <Compile Include="Models\IJson.cs" />
+    <Compile Include="Models\Logger.cs" />
     <Compile Include="Models\Range.cs" />
     <Compile Include="Models\RangesList.cs" />
     <Compile Include="Models\VerificationMethod.cs" />
     <Compile Include="Models\Type.cs" />
+    <Compile Include="Rekrutacja.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="RangesSchema.json">
+    <None Include="Schemas\RangesSchema.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="CardsListSchema.json">
+    <None Include="Schemas\CardsListSchema.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Ranges.json">
+    <None Include="Files\Ranges.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="CardsList.json">
+    <None Include="Files\CardsList.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Instructions.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <ProjectExtensions />
