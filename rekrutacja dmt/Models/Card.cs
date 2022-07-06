@@ -5,7 +5,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace rekrutacja_dmt.Models
+namespace rekrutacja_dmt
 {
     public class Card
     {

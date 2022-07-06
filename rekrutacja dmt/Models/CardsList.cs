@@ -9,7 +9,7 @@ using Newtonsoft.Json.Schema;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 
-namespace rekrutacja_dmt.Models
+namespace rekrutacja_dmt
 {
     public class CardsList : Json
     {

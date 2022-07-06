@@ -10,7 +10,7 @@ using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.Text.RegularExpressions;
 
-namespace rekrutacja_dmt.Models
+namespace rekrutacja_dmt
 
 {
     internal class Program
@@ -46,9 +46,6 @@ namespace rekrutacja_dmt.Models
                 card.CheckVerificationMethod();
                 card.AssessCardName(rangesList);
             }
-
-            
-
 
 
             Console.ReadLine();

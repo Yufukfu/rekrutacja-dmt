@@ -7,7 +7,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.Threading.Tasks;
 
-namespace rekrutacja_dmt.Models
+namespace rekrutacja_dmt
 {
     public class RangesList : Json
     {
@@ -25,7 +25,7 @@ namespace rekrutacja_dmt.Models
         public void CheckOverlap()
         {
             Overlap = false;
-            Ranges.Sort((x, y) => x.to.CompareTo(y.to));
+            Ranges.Sort((x, y) => x.from.CompareTo(y.from));
             for(int i = 0; i < Ranges.Count - 1; i++)
             {
                 int o = string.Compare(Ranges[i].to, Ranges[i + 1].from);
