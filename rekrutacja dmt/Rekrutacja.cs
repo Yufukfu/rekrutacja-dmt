@@ -15,20 +15,20 @@ namespace rekrutacja_dmt
 {
     internal class Rekrutacja
     {
-        public string Main(string filename1 = "CardsList.json", string filename2 = "Ranges.json", string log_filename = "log.txt")
+        public string Main(string cards_filename = "CardsList.json", string ranges_filename = "Ranges.json", string log_filename = "log.txt")
         {
-            string schemaname1 = "CardsListSchema.json";
-            string schemaname2 = "RangesSchema.json";
+            string cards_schemaname = "CardsListSchema.json";
+            string ranges_schemaname = "RangesSchema.json";
 
             var rangesList = new RangesList();
-            rangesList.ReadFiles(filename2, schemaname2);
+            rangesList.ReadFiles(ranges_filename, ranges_schemaname);
             if (rangesList.IsValid())
             {
                 rangesList.Deserialize();
                 rangesList.CheckOverlap();
             }
             var cardsList = new CardsList();
-            cardsList.ReadFiles(filename1, schemaname1);
+            cardsList.ReadFiles(cards_filename, cards_schemaname);
             if (cardsList.IsValid())
             {
                 cardsList.Deserialize();
