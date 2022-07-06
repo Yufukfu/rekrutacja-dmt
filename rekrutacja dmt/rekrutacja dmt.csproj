@@ -80,6 +80,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\Address.cs" />
+    <Compile Include="Models\BasePath.cs" />
     <Compile Include="Models\Card.cs" />
     <Compile Include="Models\Json.cs" />
     <Compile Include="Models\CardsList.cs" />
@@ -104,12 +105,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Files\Ranges.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Files\CardsList.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
+    <None Include="Files\Ranges.json" />
+    <None Include="Files\CardsList.json" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <ProjectExtensions />

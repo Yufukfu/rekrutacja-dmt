@@ -19,8 +19,7 @@ namespace rekrutacja_dmt
         {
             string str = LogString.ToString();
             //string filename = DateTime.Now.ToString("yyyy_MM_dd_HH_mm");
-            string projectDirectory = Directory.GetParent(Environment.CurrentDirectory).Parent.FullName;
-            string path = $@"{projectDirectory}\Logs\{filename}.txt";
+            string path = $@"{BasePath.Get()}\Logs\{filename}.txt";
             File.WriteAllText(path, str);
         }
     }

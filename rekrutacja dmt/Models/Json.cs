@@ -25,8 +25,8 @@ namespace rekrutacja_dmt
             Logger.Out($"Reading file '{file}'...");
             try
             {
-            JsonString = File.ReadAllText($"./Files/{file}");
-            SchemaString = File.ReadAllText($"./Schemas/{schema}");
+            JsonString = File.ReadAllText($"{BasePath.Get()}/Files/{file}");
+            SchemaString = File.ReadAllText($"{BasePath.Get()}/Schemas/{schema}");
             //Console.WriteLine(JsonString);
 
             }
