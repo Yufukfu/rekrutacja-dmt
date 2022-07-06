@@ -1,0 +1,29 @@
+﻿{
+    "ranges": [
+        {
+            "from": "40000000001",
+            "to": "42999999999",
+            "name": "Visa electron"
+        },
+        {
+            "from": "5410000",
+            "to": "5575199",
+            "name": "debit mastercard"
+        },
+        {
+            "from": "45",
+            "to": "48",
+            "name": "visa"
+        },
+        {
+            "from": "49",
+            "to": "67",
+            "name": "visa impresja"
+        },
+        {
+            "from": "6700001",
+            "to": "6899999",
+            "name": "maestro"
+        }
+    ]
+}
