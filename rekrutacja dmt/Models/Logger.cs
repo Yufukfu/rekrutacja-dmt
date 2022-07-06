@@ -19,8 +19,19 @@ namespace rekrutacja_dmt
         {
             string str = LogString.ToString();
             //string filename = DateTime.Now.ToString("yyyy_MM_dd_HH_mm");
-            string path = $@"{BasePath.Get()}\Logs\{filename}.txt";
+            string path = $@"{BasePath.Get()}\Logs\{filename}";
+            try
+            {
             File.WriteAllText(path, str);
+            }
+            catch (Exception e)
+            {
+                Logger.Out("    Cannot save this file.");
+                Logger.Out($"   {e.Message}");
+                Logger.Out("");
+                Console.ReadLine();
+                return;
+            }
         }
     }
 }
