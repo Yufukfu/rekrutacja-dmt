@@ -32,14 +32,14 @@ namespace rekrutacja_dmt
                 range.IsValid();
             }
             Overlap = false;
-            Ranges.Sort((x, y) => x.from.CompareTo(y.from));
+            List<Range> SortedRanges = Ranges.OrderBy(o => o.from).ToList();
             for (int i = 0; i < Ranges.Count - 1; i++)
             {
-                int o = string.Compare(Ranges[i].to, Ranges[i + 1].from);
-                if (o > 0)
+                int c = string.Compare(SortedRanges[i].to, SortedRanges[i + 1].from);
+                if (c > 0)
                 {
                     Overlap = true;
-                    Logger.Out($"    Ranges {Ranges[i].from}-{Ranges[i].to} and {Ranges[i + 1].from}-{Ranges[i + 1].to} are overlaping");
+                    Logger.Out($"    Ranges {SortedRanges[i].from}-{SortedRanges[i].to} and {SortedRanges[i + 1].from}-{SortedRanges[i + 1].to} are overlaping");
                     Logger.Out("    Card name assessment may vary depending on ranges order in .json file.");
                     break;
                 }
