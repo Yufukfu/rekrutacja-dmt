@@ -29,7 +29,7 @@ namespace rekrutacja_dmt
         public void CheckCards(RangesList rangesList)
         {
             int i = 0;
-            foreach (Card card in cardsList.Cards)
+            foreach (Card card in Cards)
             {
                 i++;
                 Logger.Out("");
