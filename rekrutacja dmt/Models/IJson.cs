@@ -8,6 +8,7 @@ namespace rekrutacja_dmt
 {
     internal interface IJson
     {
+        void ReadFiles(string filename, string schemaname);
         bool IsValid();
         void Deserialize();
     }

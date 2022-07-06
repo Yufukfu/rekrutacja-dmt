@@ -24,6 +24,7 @@ namespace rekrutacja_dmt
 
         public void IsPANvalid()
         {
+            Logger.Out("Varyfying PAN correctness...");
             Regex r = new Regex("^;([0-9]+)=");
             Match m = r.Match(track2);
             int sum = 0, d;
@@ -41,9 +42,18 @@ namespace rekrutacja_dmt
             }
 
             PANvalid = ((10 - (sum % 10) == Convert.ToInt32(PAN.Substring(PAN.Length - 1))));
+            if (PANvalid)
+            {
+                Logger.Out("    OK.");
+            }
+            else
+            {
+                Logger.Out("    PAN is not valid.");
+            }
         }
         public void CheckExpirationDate()
         {
+            Logger.Out("Checking expiration date...");
             Regex r = new Regex("=([0-9]{2})([0-9]{2})");
             Match m = r.Match(track2);
             int YY = Int32.Parse(m.Groups[1].Value);
@@ -51,27 +61,40 @@ namespace rekrutacja_dmt
             int year = DateTime.Now.Year % 100;
             int month = DateTime.Now.Month;
             Expired = !(YY >= year & MM >= month);
-
+            if (Expired)
+            {
+                Logger.Out("    Card has expired.");
+            }
+            else
+            {
+                Logger.Out("    OK.");
+            }
         }
 
         public void CheckVerificationMethod()
         {
+            //discuss: not sure if i am assessing verfifcation method correctly
+            Logger.Out("Checking verification method...");
             Regex r = new Regex("=.{5}([0-9])");
             Match m = r.Match(track2);
             int n = Int32.Parse(m.Groups[1].Value);
             VerificationMethod = (VerificationMethod)n;
+            Logger.Out($"    {VerificationMethod}");
         }
         public void AssessCardName(RangesList rangesList)
         {
+            Logger.Out("Assesing card name...");
             foreach (Range range in rangesList.Ranges)
             {
-                //TODO numer karty 4856748... nie wchodzi do zakresu 45-48, czy powinien?
-                if (string.Compare(PAN, range.from) >= 0 & string.Compare(PAN, range.to) <= 0)
+                if (string.Compare(PAN.Substring(0,range.from.Length), range.from) >= 0
+                    & string.Compare(PAN.Substring(0, range.to.Length), range.to) <= 0)
                 {
                     Name = range.name;
                     break;
                 }
             }
+            if(Name == null)Logger.Out("    Cannot assess card name.");
+            else Logger.Out($"    {Name}");
         }
     }
 }

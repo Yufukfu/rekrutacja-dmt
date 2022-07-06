@@ -22,7 +22,23 @@ namespace rekrutacja_dmt
         }
         public override void Deserialize()
         {
+            Logger.Out($"Deserializing {filename}");
             Cards = JsonConvert.DeserializeObject<CardsList>(JsonString).Cards;
+            Logger.Out($"   {filename} deserialized.");
+        }
+        public void CheckCards(RangesList rangesList)
+        {
+            int i = 0;
+            foreach (Card card in cardsList.Cards)
+            {
+                i++;
+                Logger.Out("");
+                Logger.Out($"Checking card number {i}:");
+                card.IsPANvalid();
+                card.CheckExpirationDate();
+                card.CheckVerificationMethod();
+                card.AssessCardName(rangesList);
+            }
         }
     }
 }
